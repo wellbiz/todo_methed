@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/combine/npm/bootstrap@5/dist/css/bootstrap.min.css,npm/normalize.css@8">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.min.js"></script>
+  <title>ToDo</title>
+  <script defer src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      phoneBookInit('.app-container')
+    })
+  </script>
+</head>
+
+<body>
+  <div class="app-container container">
+    <header class="row align-items-center justify-content-center flex-column">
+      <div class="col">
+        <h1 class='text-center'>TODO &mdash; не теряй время зря!</h1>
+      </div>
+      <div class="crud_todo me-3 mb-3">
+        <form class="d-flex align-items-center" onsubmit="alert(status.value)">
+          <label class="form-group me-3 mb-0 col-6">
+            <input type="text" class="form-control" placeholder="Введи задачу" name="task">
+          </label>
+          <select class="form-select me-3 mb-0"  aria-label="Default select example" name='status'>
+            <option selected>Выбери срочность</option>
+            <option value="default">Обычная</option>
+            <option value="important">Важная</option>
+            <option value="urgently">Срочная</option>
+          </select>
+          <button type="submit" class="btn btn-primary me-3" name='save'>
+            Сохранить
+          </button>
+
+          <button type="reset" class="btn btn-warning" name='clean'>
+            Очистить
+          </button>
+        </form>
+      </div>
+    </header>
+    <main>
+      <div class="container d-flex align-items-center">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">№</th>
+              <th scope="col">Задача</th>
+              <th scope="col">Статус</th>
+              <th scope="col">Операции</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class='text-dark  table-warning'>
+              <th scope="row">1</th>
+              <td>Купить молока обычного</td>
+              <td>В процессе</td>
+              <td><button class='btn btn-primary me-1'>Done</button><button class='btn btn-danger'>Завершить</button></td>
+            </tr>
+            <tr class='text-danger table-danger'>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Выполнена</td>
+              <td><button class='btn btn-primary me-1'>Done</button><button class='btn btn-danger'>Завершить</button></td>
+            </tr>
+            <tr class='text-success  table-success'>
+              <th scope="row">3</th>
+              <td>Larry the Bird</td>
+              <td>Thornton</td>
+              <td><button class='btn btn-primary me-1'>Done</button><button class='btn btn-danger'>Завершить</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+  </div>
+
+</body>
+
+</html>
