@@ -102,3 +102,35 @@ const addToLocalStorage = (todo) => {
         localStorage.setItem(`tasks_${currentUser}`, JSON.stringify(data));
     }
 };
+
+export const editTask = () => {
+    const tbody = document.querySelector('.table tbody');
+    tbody.addEventListener('dblclick', (e) => {
+        const target = e.target;
+        if (!target.closest('.task')) return;
+        const currentTask = target.closest('.task');
+        currentTask.setAttribute('contenteditable', 'true');
+        currentTask.addEventListener('blur', () => {
+            currentTask.setAttribute('contenteditable', 'false');
+            const editedText = currentTask.textContent;
+            const id = currentTask.parentNode.dataset.id;
+
+            let tasks = JSON.parse(
+                localStorage.getItem(
+                    `tasks_${localStorage.getItem('currentUser')}`
+                )
+            );
+            let editedTasks = [];
+            tasks.forEach((currentTask) => {
+                if (id == currentTask.id) currentTask.task = editedText;
+
+                editedTasks.push(currentTask);
+            });
+
+            localStorage.setItem(
+                `tasks_${localStorage.getItem('currentUser')}`,
+                JSON.stringify(editedTasks)
+            );
+        });
+    });
+};

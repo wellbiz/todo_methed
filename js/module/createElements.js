@@ -146,6 +146,7 @@ export const createTr = (obj) => {
     const tdStatus = td.cloneNode();
 
     tdTask.textContent = obj.task;
+    tdTask.classList.add('task')
     if (obj.status) tdStatus.textContent = obj.status;
     else tdStatus.textContent = 'в процессе';
     const tdButtons = td.cloneNode();

@@ -12,7 +12,7 @@ import {
     createTbody,
 } from './createElements.js';
 
-import {addTodo, handlerButtonsTr} from './CRUDTasks.js';
+import {addTodo, handlerButtonsTr, editTask} from './CRUDTasks.js';
 
 const renderDataFromLocalStorage = (user) => {
     localStorage.setItem('currentUser', user);
@@ -59,4 +59,5 @@ export const renderTODO = (app, user) => {
     renderDataFromLocalStorage(user);
     addTodo();
     handlerButtonsTr();
+    editTask();
 };
