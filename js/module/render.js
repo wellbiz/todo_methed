@@ -20,7 +20,6 @@ const renderDataFromLocalStorage = (user) => {
     const tbody = document.querySelector('.table tbody');
     if (data) {
         data.forEach((currentTask) => {
-            console.log(currentTask);
             tbody.append(createTr(currentTask));
         });
     }
