@@ -120,7 +120,9 @@ export const createThead = () => {
 };
 export const createTr = (obj) => {
     const tr = document.createElement('tr');
-    tr.dataset.id = obj.id;
+    //check id
+    if ('id' in obj) tr.dataset.id = obj.id;
+    else tr.dataset.id = '0';
     if (obj.status != 'Выполнена') {
         switch (obj.priority) {
             case 'default':
@@ -146,7 +148,7 @@ export const createTr = (obj) => {
     const tdStatus = td.cloneNode();
 
     tdTask.textContent = obj.task;
-    tdTask.classList.add('task')
+    tdTask.classList.add('task');
     if (obj.status) tdStatus.textContent = obj.status;
     else tdStatus.textContent = 'в процессе';
     const tdButtons = td.cloneNode();

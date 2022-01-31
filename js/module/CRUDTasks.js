@@ -71,7 +71,7 @@ export const handlerButtonsTr = () => {
             const status = currentTr.querySelector('td:nth-child(3)');
             status.textContent = 'Выполнена';
             currentTr.className = 'text-success table-success';
-            target.closest('.js-done').remove();
+
 
             data.forEach((item) => {
                 if (item.id == currentId) item.status = 'Выполнена';
@@ -80,6 +80,7 @@ export const handlerButtonsTr = () => {
                 `tasks_${localStorage.getItem('currentUser')}`,
                 JSON.stringify(data)
             );
+            target.closest('.js-done').remove();
         }
     });
 };
